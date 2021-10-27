@@ -4,7 +4,11 @@ const _ = {
       let clampedValue =  Math.min(lowerClampedValue, upper);
       return clampedValue
     },
+    
      inRange(number,start,end){
+        if (start === number){
+            return true
+        }
         if (end === undefined){
           end = 0
         }
@@ -25,7 +29,29 @@ const _ = {
         }
   
       },
-    }
+
+      words(str){
+        let strArr = str.split(" ")
+        return strArr
+      },
+
+      pad(string, length){
+        if(length <= string) {
+          return string
+        }
+        let begPad = Math.floor(length - string.length) / 2
+        let endPad = length - begPad
+
+        paddedString = ' '.repeat(begPad) + string +  ' '.repeat(endPad)
+        
+
+        return paddedString
+
+      }
+
+      
+  }
+
 
 // Do not write or modify code below this line.
 module.exports = _;
